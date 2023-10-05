@@ -59,6 +59,8 @@ CREATE TABLE IF NOT EXISTS dim_vendedor(
     UNIQUE KEY (id_empleado)
 );
 
+
+
 -- DIMENSION HECHOS_DETALLES -- TABLA 
 
 CREATE TABLE IF NOT EXISTS orden_detalle(

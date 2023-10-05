@@ -1,3 +1,9 @@
+-- ETL CLIENTE
+USE ADW;
+
+INSERT INTO DWHADW.dim_cliente(
+    customer_id, nombre_cliente, territory_id, nombre_territorio, grupo_region
+)
 SELECT SOH.CustomerID AS customer_id,
         -- C.CustomerID, C.StoreID,
         -- P.BusinessEntityID, P.PersonType, P.Title, 
@@ -13,5 +19,4 @@ FROM Sales_SalesOrderHeader SOH
     INNER JOIN Sales_SalesTerritory ST ON ST.TerritoryID = SOH.TerritoryID
     -- INNER JOIN Sales_Store AS S ON S.BusinessEntityID = C.StoreID
 GROUP BY SOH.CustomerID,nombre_cliente,ST.TerritoryID, ST.Name, ST.CountryRegionCode, ST.Group
-ORDER BY C.CustomerID
-LIMIT 50;
+ORDER BY C.CustomerID;
